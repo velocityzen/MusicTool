@@ -1,0 +1,19 @@
+[
+ {
+    "id": "file1",
+    "title": "title1",
+    "artist": "artist1"
+ },
+ 
+ {
+   "id": "file2",
+   "title": "title2",
+   "artist": "artist2"
+ },
+ 
+ {
+   "id": "file3",
+   "title": "title3",
+   "artist": "artist3"
+ }
+]

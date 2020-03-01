@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  Toolbar.swift
 //  Music Tool
 //
 //  Created by velocityzen on 11/29/19.
@@ -8,16 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct Toolbar: View {
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct Toolbar_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Toolbar()
     }
 }
