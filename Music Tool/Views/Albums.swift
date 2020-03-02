@@ -12,7 +12,8 @@ struct Albums: ConnectedView {
         Grid(
           geometry: geometry,
           itemsCount: props.albums.count,
-          itemWidth: ALBUM_WIDTH
+          itemWidth: ALBUM_WIDTH,
+          padding: ALBUM_PADDING
         ) { index in
           AlbumView(album: props.albums[index])
             .onTapGesture {

@@ -7,8 +7,8 @@ struct Album: Codable, Identifiable {
   let imageFiles: [URL]
   let cueFiles: [URL]
   
-  let title: String? = nil
-  let artist: String? = nil
+  var title: String? = nil
+  var artist: String? = nil
   var cover: URL? = nil
   
   var displayTitle: String {

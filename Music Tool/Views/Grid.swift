@@ -4,7 +4,9 @@ struct Grid<Content>: View where Content: View{
   private let cols: Int
   private let rows: Int
   private let itemsCount: Int
+  private let padding: CGFloat
   private let hasHangedItems: Bool
+  private let maxRowWidth: CGFloat
   private let content: (Int) -> Content
   
   
@@ -12,19 +14,22 @@ struct Grid<Content>: View where Content: View{
     geometry: GeometryProxy,
     itemsCount: Int,
     itemWidth: CGFloat,
+    padding: CGFloat,
     @ViewBuilder content: @escaping (Int) -> Content
   ) {
-    self.cols = getCols(geometry, itemWidth: itemWidth, itemsCount: itemsCount)
+    self.cols = getCols(geometry, itemWidth: itemWidth, padding: padding, itemsCount: itemsCount)
     self.rows = getRows(itemsCount: itemsCount, columns: self.cols)
     self.itemsCount = itemsCount
+    self.padding = padding
     self.content = content
     self.hasHangedItems = self.itemsCount % self.cols != 0
+    self.maxRowWidth = CGFloat(self.cols) * itemWidth
   }
   
   var body: some View {
-    VStack() {
+    VStack(spacing: 0) {
       ForEach((0..<self.rows), id: \.self) { row in
-        HStack {
+        HStack(spacing: 0) {
           ForEach((0..<((
             row == self.rows - 1 &&
             self.hasHangedItems ?
@@ -37,13 +42,24 @@ struct Grid<Content>: View where Content: View{
             Spacer()
           }
         }
+        .frame(maxWidth: self.maxRowWidth)
       }
     }
+    .frame(maxWidth: .infinity)
+    .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
   }
 }
 
-private func getCols(_ geometry: GeometryProxy, itemWidth: CGFloat, itemsCount: Int) -> Int {
-  return max(1, min(Int(geometry.size.width / itemWidth), itemsCount))
+private func getCols(_ geometry: GeometryProxy, itemWidth: CGFloat, padding: CGFloat, itemsCount: Int) -> Int {
+  return max(
+    1,
+    min(
+      Int(
+        (geometry.size.width - padding  - padding) / itemWidth
+      ),
+      itemsCount
+    )
+  )
 }
 
 private func getRows(itemsCount: Int, columns: Int) -> Int {
