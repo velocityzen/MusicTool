@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftUIFlux
 
-struct Albums: ConnectedView {
+struct AlbumsView: ConnectedView {
   struct Props {
     let albums: OrderedSet<Album>
   }
@@ -17,8 +17,8 @@ struct Albums: ConnectedView {
         ) { index in
           AlbumView(album: props.albums[index])
             .onTapGesture {
-              print("Tapped")
-          }
+              self.openAlbum(props.albums[index].id)
+            }
         }
       }
     }
@@ -26,13 +26,17 @@ struct Albums: ConnectedView {
   
 }
 
-extension Albums {
+extension AlbumsView {
   func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
     return Props(albums: state.albums.items)
   }
 }
 
-extension Albums {
+extension AlbumsView {
+  func openAlbum(_ id: UUID) {
+    store.dispatch(action: UIActions.Open(id: id))
+  }
+  
   func removeAlbum(_ id: UUID) {
     store.dispatch(action: AlbumsActions.Remove(id: id))
   }

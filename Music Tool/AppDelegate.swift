@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var window: NSWindow!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    setStoredSystemMode()
+    setTheme()
     
     // Create the SwiftUI view that provides the window contents.
     let rootView = StoreProvider(store: store) {
@@ -36,8 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     )
     
     window.center()
-    window.setFrameAutosaveName("Music Tool")
+    window.setFrameAutosaveName("Music Tool Main Window")
+    window.title = "Music Tool"
+    window.titleVisibility = .hidden
     window.contentView = NSHostingView(rootView: rootView)
+    
+    self.initToolbar()
+    
     window.makeKeyAndOrderFront(nil)
   }
 
@@ -45,56 +50,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Insert code here to tear down your application
   }
   
-  func setStoredSystemMode() {
+  func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    return true
+  }
+}
+
+// Theme menu selector
+extension AppDelegate {
+  @IBAction func darkModeSelected(_ sender: Any) {
+    setTheme(.Dark)
+  }
+  
+  @IBAction func lightModeSelected(_ sender: Any) {
+    setTheme(.Light)
+  }
+  
+  @IBAction func systemModeSelected(_ sender: Any) {
+    setTheme(.System)
+  }
+  
+  func setTheme(_ theme: Theme? = nil) {
+    if let t = theme {
+      Defaults[.theme] = t
+    }
+    
     switch Defaults[.theme] {
       case .Dark:
         NSApp.appearance = NSAppearance(named: .darkAqua)
-      case .Light:
-        NSApp.appearance = NSAppearance(named: .aqua)
-      default:
-        NSApp.appearance = nil
-    }
-    
-    showSelectedModeInMenu()
-  }
-  
-  func showSelectedModeInMenu() {
-    switch Defaults[.theme] {
-      case .Dark:
         darkModeMenuItem.state = .on
         lightModeMenuItem.state = .off
         systemModeMenuItem.state = .off
       case .Light:
+        NSApp.appearance = NSAppearance(named: .aqua)
         darkModeMenuItem.state = .off
         lightModeMenuItem.state = .on
         systemModeMenuItem.state = .off
       default:
+        NSApp.appearance = nil
         darkModeMenuItem.state = .off
         lightModeMenuItem.state = .off
         systemModeMenuItem.state = .on
     }
   }
-  
-  @IBAction func darkModeSelected(_ sender: Any) {
-    NSApp.appearance = NSAppearance(named: .darkAqua)
-    Defaults[.theme] = .Dark
-    showSelectedModeInMenu()
-  }
-  
-  @IBAction func lightModeSelected(_ sender: Any) {
-    NSApp.appearance = NSAppearance(named: .aqua)
-    Defaults[.theme] = .Light
-    showSelectedModeInMenu()
-  }
-  
-  @IBAction func systemModeSelected(_ sender: Any) {
-    NSApp.appearance = nil
-    Defaults[.theme] = .System
-    showSelectedModeInMenu()
-  }
 }
 
-
-let store = Store<AppState>(reducer: appStateReducer,
-                            state: AppState(albums: AlbumsState())
-)

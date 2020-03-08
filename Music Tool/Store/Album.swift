@@ -1,5 +1,11 @@
 import Foundation
 
+struct Track: Codable {
+  let number: Int
+  let artist: String
+  let title: String
+}
+
 struct Album: Codable, Identifiable {
   let id: UUID
   let url: URL
@@ -10,7 +16,9 @@ struct Album: Codable, Identifiable {
   var title: String? = nil
   var artist: String? = nil
   var cover: URL? = nil
-  
+
+//  let tracks: [Track]
+
   var displayTitle: String {
     guard let title = self.title else {
       return self.url.lastPathComponent

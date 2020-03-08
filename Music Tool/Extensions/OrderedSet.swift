@@ -38,6 +38,10 @@ public struct OrderedSet<E: Identifiable>: Equatable, Collection {
     return set.contains(member.id)
   }
   
+  public func get(_ id: Element.ID) -> Element? {
+    return self.array.first(where: {$0.id == id})
+  }
+  
   /// Adds an element to the ordered set.
   ///
   /// If it already contains the element, then the set is unchanged.
@@ -135,10 +139,3 @@ extension OrderedSet: Decodable where Element: Decodable {
   }
 }
 
-extension OrderedSet {
-  func chunked(into size: Int) -> [[Element]] {
-    stride(from: 0, to: count, by: size).map {
-      Array(self.contents[$0 ..< Swift.min($0 + size, count)])
-    }
-  }
-}

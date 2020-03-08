@@ -1,11 +1,5 @@
 import SwiftUIFlux
 
-func appStateReducer(state: AppState, action: Action) -> AppState {
-  var state = state
-  state.albums = albumsReducer(state: state.albums, action: action)
-  return state
-}
-
 func albumsReducer(state: AlbumsState, action: Action) -> AlbumsState {
   var state = state
   switch action {

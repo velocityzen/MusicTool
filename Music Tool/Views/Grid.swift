@@ -8,8 +8,7 @@ struct Grid<Content>: View where Content: View{
   private let hasHangedItems: Bool
   private let maxRowWidth: CGFloat
   private let content: (Int) -> Content
-  
-  
+    
   init(
     geometry: GeometryProxy,
     itemsCount: Int,

@@ -4,14 +4,17 @@ import SwiftUIFlux
 struct Main: ConnectedView {
   struct Props {
     let hasAlbums: Bool
+    let openAlbum: Album?
   }
 
   func body(props: Props) -> some View {
     Group {
-      if props.hasAlbums {
-        Albums()
+      if props.openAlbum != nil {
+        AlbumDetailsView(album: props.openAlbum!)
+      } else if props.hasAlbums {
+        AlbumsView()
       } else {
-        Drop()
+        DropView()
       }
     }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -21,7 +24,14 @@ struct Main: ConnectedView {
 
 extension Main {
   func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-    return Props(hasAlbums: !state.albums.items.isEmpty)
+    let openAlbumId = state.ui.openAlbumId
+    
+    print(state)
+    
+    return Props(
+      hasAlbums: !state.albums.items.isEmpty,
+      openAlbum: openAlbumId == nil ? nil : state.albums.items.get(openAlbumId!) 
+    )
   }
 }
 
