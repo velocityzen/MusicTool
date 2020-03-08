@@ -25,9 +25,7 @@ struct Main: ConnectedView {
 extension Main {
   func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
     let openAlbumId = state.ui.openAlbumId
-    
-    print(state)
-    
+        
     return Props(
       hasAlbums: !state.albums.items.isEmpty,
       openAlbum: openAlbumId == nil ? nil : state.albums.items.get(openAlbumId!) 

@@ -32,7 +32,7 @@ extension Album {
   init(from albumDirectory: AlbumDirectory) {
     id = UUID(namespace: UUID_NAMESPACE, name: albumDirectory.url.absoluteString)!
     url = albumDirectory.url
-    musicFiles = albumDirectory.musicFiles
+    musicFiles = albumDirectory.musicFiles.sorted(by: { $0.lastPathComponent < $1.lastPathComponent})
     imageFiles = albumDirectory.imageFiles
     cueFiles = albumDirectory.cueFiles
     cover = getCoverURL(self)

@@ -45,7 +45,7 @@ struct Grid<Content>: View where Content: View{
       }
     }
     .frame(maxWidth: .infinity)
-    .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
+    .padding(EdgeInsets(top: self.padding, leading: self.padding, bottom: 0, trailing: self.padding))
   }
 }
 

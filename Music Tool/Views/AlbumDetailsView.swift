@@ -12,24 +12,42 @@ import KingfisherSwiftUI
 struct AlbumDetailsView: View {
   let album: Album
   var body: some View {
-    HStack(spacing: 20) {
-      VStack {
-        AlbumCover(url: album.cover)
-        Spacer()
+    GeometryReader { geometry in
+      ScrollView(.vertical) {
+        HStack {
+          VStack {
+            AlbumCover(url: self.album.cover)
+            Spacer()
+          }
+          VStack(alignment: .leading) {
+            Text(self.album.displayTitle)
+              .font(.title)
+              
+            Text(self.album.artist ?? "")
+              .font(.title)
+              .foregroundColor(.accentColor)
+            
+            Divider()
+            
+            AlbumTrackList(album: self.album)
+            
+            Spacer()
+          }
+          Spacer()
+        }
+        .frame(maxWidth: self.getMaxWidth(geometry))
+        .padding(EdgeInsets(top: ALBUM_PADDING, leading: ALBUM_PADDING, bottom: 0, trailing: ALBUM_PADDING))
       }
-      VStack(alignment: .leading) {
-        Text(album.displayTitle)
-          .font(.title)
-          
-        Text(album.artist ?? "")
-          .font(.title)
-          .foregroundColor(.accentColor)
-        
-        Spacer()
-      }
-      Spacer()
     }
-    .padding(ALBUM_PADDING)
+  }
+  
+  func getMaxWidth(_ geometry: GeometryProxy) -> CGFloat {
+    return ALBUM_WIDTH * CGFloat(max(
+      1,
+      Int(
+        (geometry.size.width - ALBUM_PADDING  - ALBUM_PADDING) / ALBUM_WIDTH
+      )
+    ))
   }
 }
 

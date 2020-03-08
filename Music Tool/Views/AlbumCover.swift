@@ -6,6 +6,7 @@ struct AlbumCover: View {
   
   var body: some View {
     KFImage(url)
+      .placeholder { AlbumDefaultCover() }
       .resizable()
       .aspectRatio(contentMode: .fill)
       .frame(width: ALBUM_COVER_SIZE, height: ALBUM_COVER_SIZE)
