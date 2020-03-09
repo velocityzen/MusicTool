@@ -37,9 +37,9 @@ struct Grid<Content>: View where Content: View{
             self.content(row * self.cols + col)
           }
           
-          if self.hasHangedItems {
-            Spacer()
-          }
+//          if self.hasHangedItems {
+//            Spacer()
+//          }
         }
         .frame(maxWidth: self.maxRowWidth)
       }

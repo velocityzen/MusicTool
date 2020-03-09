@@ -15,10 +15,8 @@ struct AlbumView: View {
         .foregroundColor(.accentColor)
       Spacer()
     }
-    .padding(10)
+    .padding(ALBUM_PADDING)
     .frame(width: ALBUM_WIDTH, height: ALBUM_HEIGHT)
-    .fixedSize()
-    
   }
 }
 

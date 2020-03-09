@@ -14,11 +14,14 @@ struct AlbumDetailsView: View {
   var body: some View {
     GeometryReader { geometry in
       ScrollView(.vertical) {
-        HStack {
+        HStack(spacing: 0) {
+          
           VStack {
             AlbumCover(url: self.album.cover)
             Spacer()
           }
+          .padding(ALBUM_PADDING)
+          
           VStack(alignment: .leading) {
             Text(self.album.displayTitle)
               .font(.title)
@@ -33,6 +36,8 @@ struct AlbumDetailsView: View {
             
             Spacer()
           }
+          .padding(ALBUM_PADDING)
+          
           Spacer()
         }
         .frame(maxWidth: self.getMaxWidth(geometry))
@@ -42,12 +47,10 @@ struct AlbumDetailsView: View {
   }
   
   func getMaxWidth(_ geometry: GeometryProxy) -> CGFloat {
-    return ALBUM_WIDTH * CGFloat(max(
-      1,
-      Int(
-        (geometry.size.width - ALBUM_PADDING  - ALBUM_PADDING) / ALBUM_WIDTH
-      )
-    ))
+    let albumsNumber = getAlbumsNumber(in: geometry.size.width)
+    let maxWidth = ALBUM_WIDTH * CGFloat(albumsNumber)
+    
+    return maxWidth
   }
 }
 

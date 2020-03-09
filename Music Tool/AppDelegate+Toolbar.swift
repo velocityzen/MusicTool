@@ -4,7 +4,7 @@ import SwiftUIFlux
 
 extension AppDelegate: NSToolbarDelegate {
   func initToolbar() {
-    let toolbar = NSToolbar(identifier: "musictool")
+    let toolbar = NSToolbar(identifier: "musictool.toolbar")
     toolbar.allowsUserCustomization = false
     toolbar.autosavesConfiguration = false
     toolbar.displayMode = .iconOnly

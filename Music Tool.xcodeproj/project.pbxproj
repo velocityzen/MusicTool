@@ -23,6 +23,7 @@
 		270615552415594E0035258F /* actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270615542415594E0035258F /* actions.swift */; };
 		27061559241563570035258F /* AlbumDefaultCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27061558241563570035258F /* AlbumDefaultCover.swift */; };
 		2706155E241594FA0035258F /* AlbumTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2706155D241594FA0035258F /* AlbumTrackList.swift */; };
+		270615602415EE1F0035258F /* AppDelegate+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2706155F2415EE1F0035258F /* AppDelegate+Theme.swift */; };
 		275E9FBE2391C6AB00BABBBD /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E9FBD2391C6AB00BABBBD /* AlbumsView.swift */; };
 		277CA19F2391882D007AC2D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA19E2391882D007AC2D0 /* AppDelegate.swift */; };
 		277CA1A12391882D007AC2D0 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA1A02391882D007AC2D0 /* Main.swift */; };
@@ -74,6 +75,7 @@
 		270615542415594E0035258F /* actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actions.swift; sourceTree = "<group>"; };
 		27061558241563570035258F /* AlbumDefaultCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDefaultCover.swift; sourceTree = "<group>"; };
 		2706155D241594FA0035258F /* AlbumTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrackList.swift; sourceTree = "<group>"; };
+		2706155F2415EE1F0035258F /* AppDelegate+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Theme.swift"; sourceTree = "<group>"; };
 		275E9FBD2391C6AB00BABBBD /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
 		277CA19B2391882D007AC2D0 /* Music Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CA19E2391882D007AC2D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				277CA1BF2391899C007AC2D0 /* Views */,
 				277CA19E2391882D007AC2D0 /* AppDelegate.swift */,
 				277DAD2724144CEA00A38852 /* AppDelegate+Toolbar.swift */,
+				2706155F2415EE1F0035258F /* AppDelegate+Theme.swift */,
 				278DF8492401E8E3008C8D1D /* Constants.swift */,
 				27036389240C5B0000A9D16D /* Defaults.swift */,
 				277CA1A22391882E007AC2D0 /* Assets.xcassets */,
@@ -373,6 +376,7 @@
 				2704D825240F507000BAB623 /* uiReducer.swift in Sources */,
 				278DF84E2402074A008C8D1D /* UUID.swift in Sources */,
 				2706155324153FE90035258F /* ToolbarView.swift in Sources */,
+				270615602415EE1F0035258F /* AppDelegate+Theme.swift in Sources */,
 				2704D821240F4FD000BAB623 /* UIActions.swift in Sources */,
 				277CA1A12391882D007AC2D0 /* Main.swift in Sources */,
 				270615552415594E0035258F /* actions.swift in Sources */,
