@@ -24,6 +24,7 @@
 		27061559241563570035258F /* AlbumDefaultCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27061558241563570035258F /* AlbumDefaultCover.swift */; };
 		2706155E241594FA0035258F /* AlbumTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2706155D241594FA0035258F /* AlbumTrackList.swift */; };
 		270615602415EE1F0035258F /* AppDelegate+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2706155F2415EE1F0035258F /* AppDelegate+Theme.swift */; };
+		27518F252417325800B66862 /* init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27518F242417325800B66862 /* init.swift */; };
 		275E9FBE2391C6AB00BABBBD /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E9FBD2391C6AB00BABBBD /* AlbumsView.swift */; };
 		277CA19F2391882D007AC2D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA19E2391882D007AC2D0 /* AppDelegate.swift */; };
 		277CA1A12391882D007AC2D0 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA1A02391882D007AC2D0 /* Main.swift */; };
@@ -36,17 +37,17 @@
 		278DF83D24019D2E008C8D1D /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = 278DF83C24019D2E008C8D1D /* SwiftUIFlux */; };
 		278DF84024019E90008C8D1D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF83F24019E90008C8D1D /* Store.swift */; };
 		278DF8422401A00C008C8D1D /* stateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF8412401A00C008C8D1D /* stateReducer.swift */; };
-		278DF8442401AC53008C8D1D /* AlbumsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF8432401AC53008C8D1D /* AlbumsActions.swift */; };
+		278DF8442401AC53008C8D1D /* AlbumActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF8432401AC53008C8D1D /* AlbumActions.swift */; };
 		278DF8482401DC55008C8D1D /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF8472401DC55008C8D1D /* parse.swift */; };
 		278DF84A2401E8E3008C8D1D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF8492401E8E3008C8D1D /* Constants.swift */; };
 		278DF84C2401FBD2008C8D1D /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF84B2401FBD2008C8D1D /* OrderedSet.swift */; };
 		278DF84E2402074A008C8D1D /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF84D2402074A008C8D1D /* UUID.swift */; };
 		27A3CF492391BF5300C52F57 /* testAlbums.json in Resources */ = {isa = PBXBuildFile; fileRef = 27A3CF482391BF5300C52F57 /* testAlbums.json */; };
+		27A9F3212418753C0092638B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 27A9F3202418753C0092638B /* Kingfisher */; };
 		27B67F852402310F002EA0F3 /* cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B67F842402310F002EA0F3 /* cover.swift */; };
 		27B67F87240238F8002EA0F3 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B67F86240238F8002EA0F3 /* AlbumView.swift */; };
-		27DD2D452402C3BA00FAC38B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 27DD2D442402C3BA00FAC38B /* Kingfisher */; };
 		27DD2D472402C3BA00FAC38B /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 27DD2D462402C3BA00FAC38B /* KingfisherSwiftUI */; };
-		27DD2D492402C66F00FAC38B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD2D482402C66F00FAC38B /* Album.swift */; };
+		27DD2D492402C66F00FAC38B /* AlbumState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD2D482402C66F00FAC38B /* AlbumState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		27061558241563570035258F /* AlbumDefaultCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDefaultCover.swift; sourceTree = "<group>"; };
 		2706155D241594FA0035258F /* AlbumTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrackList.swift; sourceTree = "<group>"; };
 		2706155F2415EE1F0035258F /* AppDelegate+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Theme.swift"; sourceTree = "<group>"; };
+		27518F242417325800B66862 /* init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = init.swift; sourceTree = "<group>"; };
 		275E9FBD2391C6AB00BABBBD /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
 		277CA19B2391882D007AC2D0 /* Music Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CA19E2391882D007AC2D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 		277DAD2724144CEA00A38852 /* AppDelegate+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Toolbar.swift"; sourceTree = "<group>"; };
 		278DF83F24019E90008C8D1D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		278DF8412401A00C008C8D1D /* stateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stateReducer.swift; sourceTree = "<group>"; };
-		278DF8432401AC53008C8D1D /* AlbumsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsActions.swift; sourceTree = "<group>"; };
+		278DF8432401AC53008C8D1D /* AlbumActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumActions.swift; sourceTree = "<group>"; };
 		278DF8472401DC55008C8D1D /* parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 		278DF8492401E8E3008C8D1D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		278DF84B2401FBD2008C8D1D /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
@@ -100,7 +102,7 @@
 		27A3CF482391BF5300C52F57 /* testAlbums.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testAlbums.json; sourceTree = "<group>"; };
 		27B67F842402310F002EA0F3 /* cover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cover.swift; sourceTree = "<group>"; };
 		27B67F86240238F8002EA0F3 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
-		27DD2D482402C66F00FAC38B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		27DD2D482402C66F00FAC38B /* AlbumState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A9F3212418753C0092638B /* Kingfisher in Frameworks */,
 				27036388240C5AD800A9D16D /* Defaults in Frameworks */,
 				27DD2D472402C3BA00FAC38B /* KingfisherSwiftUI in Frameworks */,
-				27DD2D452402C3BA00FAC38B /* Kingfisher in Frameworks */,
 				278DF83D24019D2E008C8D1D /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,12 +144,40 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
+		27518F232417315D00B66862 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				27518F242417325800B66862 /* init.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		27518F262417376200B66862 /* album */ = {
+			isa = PBXGroup;
+			children = (
+				278DF8432401AC53008C8D1D /* AlbumActions.swift */,
+				2704D822240F503700BAB623 /* albumReducer.swift */,
+				27DD2D482402C66F00FAC38B /* AlbumState.swift */,
+			);
+			path = album;
+			sourceTree = "<group>";
+		};
+		27518F272417376C00B66862 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				2704D820240F4FD000BAB623 /* UIActions.swift */,
+				2704D824240F507000BAB623 /* uiReducer.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		277CA1922391882D007AC2D0 = {
 			isa = PBXGroup;
 			children = (
 				277CA19D2391882D007AC2D0 /* Music Tool */,
 				277CA1B32391882E007AC2D0 /* Music ToolTests */,
 				277CA19C2391882D007AC2D0 /* Products */,
+				27A9F31F2418753C0092638B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +197,7 @@
 				278DF8462401DC0F008C8D1D /* Metadata */,
 				278DF8452401CA66008C8D1D /* Extensions */,
 				278DF83E24019D4D008C8D1D /* Store */,
+				27518F232417315D00B66862 /* Workers */,
 				27A3CF472391BF2100C52F57 /* Resources */,
 				277CA1BF2391899C007AC2D0 /* Views */,
 				277CA19E2391882D007AC2D0 /* AppDelegate.swift */,
@@ -221,12 +252,9 @@
 		278DF83E24019D4D008C8D1D /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				2704D822240F503700BAB623 /* albumReducer.swift */,
-				2704D824240F507000BAB623 /* uiReducer.swift */,
+				27518F262417376200B66862 /* album */,
+				27518F272417376C00B66862 /* ui */,
 				278DF8412401A00C008C8D1D /* stateReducer.swift */,
-				278DF8432401AC53008C8D1D /* AlbumsActions.swift */,
-				27DD2D482402C66F00FAC38B /* Album.swift */,
-				2704D820240F4FD000BAB623 /* UIActions.swift */,
 				278DF83F24019E90008C8D1D /* Store.swift */,
 				270615542415594E0035258F /* actions.swift */,
 			);
@@ -260,6 +288,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		27A9F31F2418753C0092638B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,9 +313,9 @@
 			name = "Music Tool";
 			packageProductDependencies = (
 				278DF83C24019D2E008C8D1D /* SwiftUIFlux */,
-				27DD2D442402C3BA00FAC38B /* Kingfisher */,
 				27DD2D462402C3BA00FAC38B /* KingfisherSwiftUI */,
 				27036387240C5AD800A9D16D /* Defaults */,
+				27A9F3202418753C0092638B /* Kingfisher */,
 			);
 			productName = "Music Tool";
 			productReference = 277CA19B2391882D007AC2D0 /* Music Tool.app */;
@@ -398,12 +433,13 @@
 				2703638C240C7ACF00A9D16D /* AlbumTechDetailsView.swift in Sources */,
 				2703638A240C5B0000A9D16D /* Defaults.swift in Sources */,
 				2703638E240C7D2100A9D16D /* Image.swift in Sources */,
+				27518F252417325800B66862 /* init.swift in Sources */,
 				27036385240C436000A9D16D /* Grid.swift in Sources */,
 				277DAD2824144CEA00A38852 /* AppDelegate+Toolbar.swift in Sources */,
 				2704D82A240F597300BAB623 /* albums.swift in Sources */,
 				275E9FBE2391C6AB00BABBBD /* AlbumsView.swift in Sources */,
-				278DF8442401AC53008C8D1D /* AlbumsActions.swift in Sources */,
-				27DD2D492402C66F00FAC38B /* Album.swift in Sources */,
+				278DF8442401AC53008C8D1D /* AlbumActions.swift in Sources */,
+				27DD2D492402C66F00FAC38B /* AlbumState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,7 +748,7 @@
 			package = 278DF83B24019D2E008C8D1D /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
 			productName = SwiftUIFlux;
 		};
-		27DD2D442402C3BA00FAC38B /* Kingfisher */ = {
+		27A9F3202418753C0092638B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27DD2D432402C3BA00FAC38B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;

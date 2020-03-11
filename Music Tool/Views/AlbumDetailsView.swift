@@ -42,7 +42,9 @@ struct AlbumDetailsView: View {
         }
         .frame(maxWidth: self.getMaxWidth(geometry))
         .padding(EdgeInsets(top: ALBUM_PADDING, leading: ALBUM_PADDING, bottom: 0, trailing: ALBUM_PADDING))
+        .frame(maxWidth: .infinity)
       }
+      
     }
   }
   

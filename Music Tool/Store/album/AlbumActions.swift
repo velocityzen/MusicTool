@@ -6,8 +6,10 @@ struct AlbumsActions {
     let url: URL
 
     func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
-      getAlbums(url: url) { album in
-        dispatch(Add(album: album))
+      DispatchQueue.global(qos: .userInitiated).async {
+        getAlbums(url: self.url) { album in
+          dispatch(Add(album: album))
+        }
       }
     }
   }

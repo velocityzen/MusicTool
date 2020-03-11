@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     setTheme()
+    initWorkers()
     
     // Create the SwiftUI view that provides the window contents.
     let rootView = StoreProvider(store: store) {
@@ -35,7 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         .closable,
         .miniaturizable,
         .resizable,
-        .fullSizeContentView
+        .fullSizeContentView,
+        .unifiedTitleAndToolbar
       ],
       backing: .buffered,
       defer: false
@@ -43,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     window.center()
     window.setFrameAutosaveName("Music Tool Main Window")
+    window.collectionBehavior.insert(.fullScreenPrimary)
     window.title = "Music Tool"
     window.titleVisibility = .hidden
     window.contentView = NSHostingView(rootView: rootView)

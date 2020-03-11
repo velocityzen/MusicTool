@@ -18,6 +18,8 @@ func getTestAlbum() -> Album {
     
     title: "Title",
     artist: "Artist",
-    cover: URL(string: "file:///Users/velocityzen/Downloads/new%20music/1977%20-%20Screamin%20Jay%20Hawkins%20-%20I%20Put%20A%20Spell%20On%20You/cover01.jpg")!
+    cover: URL(string: "file:///Users/velocityzen/Downloads/new%20music/1977%20-%20Screamin%20Jay%20Hawkins%20-%20I%20Put%20A%20Spell%20On%20You/cover01.jpg")!,
+    
+    status: .new
   )
 }

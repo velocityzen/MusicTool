@@ -41,11 +41,12 @@ struct Grid<Content>: View where Content: View{
 //            Spacer()
 //          }
         }
-        .frame(maxWidth: self.maxRowWidth)
+        
       }
     }
-    .frame(maxWidth: .infinity)
+    .frame(maxWidth: self.maxRowWidth)
     .padding(EdgeInsets(top: self.padding, leading: self.padding, bottom: 0, trailing: self.padding))
+    .frame(maxWidth: .infinity)
   }
 }
 

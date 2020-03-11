@@ -1,10 +1,23 @@
 import Foundation
 
-struct Track: Codable {
-  let number: Int
-  let artist: String
-  let title: String
+enum AlbumStatus: Int, Codable {
+  case new
+  case parsingFiles
+  case parsingFilesComplete
+  case parsingFilesFailed
+  case requestingMetadata
+  case requestingMetadataComplete
+  case requestingMetadataFailed
+  case transcoding
+  case transcodingComplete
+  case transcodingFailed
 }
+
+//struct Track: Codable {
+//  let number: Int
+//  let artist: String
+//  let title: String
+//}
 
 struct Album: Codable, Identifiable {
   let id: UUID
@@ -16,6 +29,8 @@ struct Album: Codable, Identifiable {
   var title: String? = nil
   var artist: String? = nil
   var cover: URL? = nil
+  
+  let status: AlbumStatus
 
 //  let tracks: [Track]
 
@@ -35,6 +50,8 @@ extension Album {
     musicFiles = albumDirectory.musicFiles.sorted(by: { $0.lastPathComponent < $1.lastPathComponent})
     imageFiles = albumDirectory.imageFiles
     cueFiles = albumDirectory.cueFiles
+    status = .new
+    
     cover = getCoverURL(self)
   }
 }
