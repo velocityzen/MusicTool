@@ -16,7 +16,7 @@ struct AlbumView: View {
     }
     .padding(ALBUM_PADDING)
     .frame(width: ALBUM_WIDTH, height: ALBUM_HEIGHT)
-    .border(self.getBorder(), width: 1)
+//    .border(self.getBorder(), width: 1)
   }
   
   func getBorder() -> Color {
