@@ -11,6 +11,7 @@ import SwiftUI
 struct AlbumDefaultCover: View {
   var body: some View {
     Image("defaultAlbumCover")
+      .resizable()
   }
 }
 

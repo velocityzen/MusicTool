@@ -1,11 +1,3 @@
-//
-//  AlbumTrackList.swift
-//  Music Tool
-//
-//  Created by velocityzen on 3/8/20.
-//  Copyright © 2020 velocityzen. All rights reserved.
-//
-
 import SwiftUI
 
 struct AlbumTrackList: View {

@@ -42,13 +42,15 @@
 		278DF84C2401FBD2008C8D1D /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF84B2401FBD2008C8D1D /* OrderedSet.swift */; };
 		278DF84E2402074A008C8D1D /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DF84D2402074A008C8D1D /* UUID.swift */; };
 		27A3CF492391BF5300C52F57 /* testAlbums.json in Resources */ = {isa = PBXBuildFile; fileRef = 27A3CF482391BF5300C52F57 /* testAlbums.json */; };
-		27A9F3212418753C0092638B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 27A9F3202418753C0092638B /* Kingfisher */; };
 		27B67F852402310F002EA0F3 /* cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B67F842402310F002EA0F3 /* cover.swift */; };
 		27B67F87240238F8002EA0F3 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B67F86240238F8002EA0F3 /* AlbumView.swift */; };
-		27DD2D472402C3BA00FAC38B /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 27DD2D462402C3BA00FAC38B /* KingfisherSwiftUI */; };
 		27DD2D492402C66F00FAC38B /* AlbumState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD2D482402C66F00FAC38B /* AlbumState.swift */; };
 		27FC72B72422F09A0076B48B /* fileParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72B62422F09A0076B48B /* fileParsing.swift */; };
 		27FC72BB242475C40076B48B /* parseFilesTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72BA242475C40076B48B /* parseFilesTags.swift */; };
+		27FC72BE2426C67C0076B48B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72BD2426C67C0076B48B /* ImageLoader.swift */; };
+		27FC72C02426C6A50076B48B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72BF2426C6A50076B48B /* AsyncImage.swift */; };
+		27FC72C22426CC080076B48B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72C12426CC080076B48B /* ImageCache.swift */; };
+		27FC72C42426D7890076B48B /* AsyncImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC72C32426D7890076B48B /* AsyncImageTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,10 @@
 		27DD2D482402C66F00FAC38B /* AlbumState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumState.swift; sourceTree = "<group>"; };
 		27FC72B62422F09A0076B48B /* fileParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileParsing.swift; sourceTree = "<group>"; };
 		27FC72BA242475C40076B48B /* parseFilesTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parseFilesTags.swift; sourceTree = "<group>"; };
+		27FC72BD2426C67C0076B48B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		27FC72BF2426C6A50076B48B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		27FC72C12426CC080076B48B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		27FC72C32426D7890076B48B /* AsyncImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27A9F3212418753C0092638B /* Kingfisher in Frameworks */,
 				27036388240C5AD800A9D16D /* Defaults in Frameworks */,
-				27DD2D472402C3BA00FAC38B /* KingfisherSwiftUI in Frameworks */,
 				278DF83D24019D2E008C8D1D /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +242,7 @@
 		277CA1BF2391899C007AC2D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27FC72BC2426C65E0076B48B /* AsyncImage */,
 				27036384240C436000A9D16D /* Grid.swift */,
 				277CA1C023918A19007AC2D0 /* DropView.swift */,
 				277CA1A02391882D007AC2D0 /* Main.swift */,
@@ -298,6 +303,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		27FC72BC2426C65E0076B48B /* AsyncImage */ = {
+			isa = PBXGroup;
+			children = (
+				27FC72C12426CC080076B48B /* ImageCache.swift */,
+				27FC72BD2426C67C0076B48B /* ImageLoader.swift */,
+				27FC72BF2426C6A50076B48B /* AsyncImage.swift */,
+				27FC72C32426D7890076B48B /* AsyncImageTransition.swift */,
+			);
+			path = AsyncImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -316,9 +332,7 @@
 			name = "Music Tool";
 			packageProductDependencies = (
 				278DF83C24019D2E008C8D1D /* SwiftUIFlux */,
-				27DD2D462402C3BA00FAC38B /* KingfisherSwiftUI */,
 				27036387240C5AD800A9D16D /* Defaults */,
-				27A9F3202418753C0092638B /* Kingfisher */,
 			);
 			productName = "Music Tool";
 			productReference = 277CA19B2391882D007AC2D0 /* Music Tool.app */;
@@ -372,7 +386,6 @@
 			mainGroup = 277CA1922391882D007AC2D0;
 			packageReferences = (
 				278DF83B24019D2E008C8D1D /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
-				27DD2D432402C3BA00FAC38B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				27036386240C5AD800A9D16D /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 277CA19C2391882D007AC2D0 /* Products */;
@@ -411,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27FC72C02426C6A50076B48B /* AsyncImage.swift in Sources */,
 				2704D825240F507000BAB623 /* uiReducer.swift in Sources */,
 				278DF84E2402074A008C8D1D /* UUID.swift in Sources */,
 				2706155324153FE90035258F /* ToolbarView.swift in Sources */,
@@ -439,7 +453,10 @@
 				27518F252417325800B66862 /* init.swift in Sources */,
 				27036385240C436000A9D16D /* Grid.swift in Sources */,
 				277DAD2824144CEA00A38852 /* AppDelegate+Toolbar.swift in Sources */,
+				27FC72BE2426C67C0076B48B /* ImageLoader.swift in Sources */,
+				27FC72C22426CC080076B48B /* ImageCache.swift in Sources */,
 				2704D82A240F597300BAB623 /* albums.swift in Sources */,
+				27FC72C42426D7890076B48B /* AsyncImageTransition.swift in Sources */,
 				275E9FBE2391C6AB00BABBBD /* AlbumsView.swift in Sources */,
 				27FC72B72422F09A0076B48B /* fileParsing.swift in Sources */,
 				278DF8442401AC53008C8D1D /* AlbumActions.swift in Sources */,
@@ -731,14 +748,6 @@
 				minimumVersion = 0.5.1;
 			};
 		};
-		27DD2D432402C3BA00FAC38B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.13.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -751,16 +760,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 278DF83B24019D2E008C8D1D /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
 			productName = SwiftUIFlux;
-		};
-		27A9F3202418753C0092638B /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27DD2D432402C3BA00FAC38B /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		27DD2D462402C3BA00FAC38B /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27DD2D432402C3BA00FAC38B /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

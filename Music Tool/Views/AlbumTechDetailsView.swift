@@ -1,5 +1,4 @@
 import SwiftUI
-import KingfisherSwiftUI
 
 struct AlbumTechDetailsView: View {
   let album: Album

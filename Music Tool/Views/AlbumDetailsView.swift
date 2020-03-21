@@ -1,13 +1,4 @@
-//
-//  AlbumDetailsView.swift
-//  Music Tool
-//
-//  Created by velocityzen on 3/3/20.
-//  Copyright © 2020 velocityzen. All rights reserved.
-//
-
 import SwiftUI
-import KingfisherSwiftUI
 
 struct AlbumDetailsView: View {
   let album: Album
