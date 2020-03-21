@@ -12,7 +12,7 @@ extension AppDelegate: NSToolbarDelegate {
     toolbar.isVisible = false
     
     toolbarSubscription = store.subscribe()
-      .map { $0.albums.items.count > 0 }
+      .map { !$0.albums.items.isEmpty }
       .removeDuplicates()
       .assign(to: \.isVisible, on: toolbar)
     

@@ -21,8 +21,6 @@ struct AlbumView: View {
   }
   
   func getBorder() -> Color {
-    print(">> \(album.status)")
-    
     switch album.status {
       case .new:
         return Color.green

@@ -51,11 +51,11 @@ extension ToolbarView {
   }
   
   func addToMetadataRequestQueue() {
-    addItemsToMetadataRequestQueue()
+    addItemsToMetadataRequestQueueAction()
   }
   
   func addToTranscodeQueue() {
-    addItemsToTranscodeQueue()
+    addItemsToTranscodeQueueAction()
   }
 }
 

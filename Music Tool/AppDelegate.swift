@@ -22,11 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var workersSubscription: AnyCancellable!
   var filesParsingSubscription: AnyCancellable!
   var toolbarSubscription: AnyCancellable!
+  
+  let queue = DispatchQueue.global(qos: .userInitiated)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     setTheme()
-    workersSubscription = initWorkersSubjects()
-    filesParsingSubscription = initFileParsingSubscription()
+    workersSubscription = initWorkersSubjects(self.queue)
+    filesParsingSubscription = initFileParsingSubscription(self.queue)
     
     // Create the SwiftUI view that provides the window contents.
     let rootView = StoreProvider(store: store) {

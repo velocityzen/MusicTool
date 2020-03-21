@@ -1,20 +1,17 @@
 import Combine
 import Dispatch
+import Foundation
 
 let readyForFileParsingAlbums = PassthroughSubject<Album, Never>()
 let readyForMetadataAlbums = PassthroughSubject<Album, Never>()
 let readyForTranscodeAlbums = PassthroughSubject<Album, Never>()
 
-func initWorkersSubjects() -> AnyCancellable {
-  let queue = DispatchQueue.global(qos: .userInitiated)
+func initWorkersSubjects(_ queue: DispatchQueue) -> AnyCancellable {
   return store.subscribe()
+    .debounce(for: 0.5, scheduler: RunLoop.main)
     .receive(on: queue)
-    .debounce(for: 1, scheduler: queue)
     .sink { state in
-      let albums = state.albums.items
-//      var setStatusAllParsing: [Album.ID] = []
-      
-      for album in albums {
+      for album in state.albums.items {
         switch album.status {
           case .new:
             setAlbumStatusAction(id: album.id, status: .parsingFiles)
@@ -22,7 +19,7 @@ func initWorkersSubjects() -> AnyCancellable {
             break
           
           case .parsingFilesComplete:
-            // if auto metdata request
+            // if auto metadata request
             // setAlbumStatusAction(id: album.id, status: .requestingMetadata)
             // readyForMetadataAlbums.send(album)
             break
@@ -37,13 +34,5 @@ func initWorkersSubjects() -> AnyCancellable {
             break
         }
       }
-      
-//      if (setStatusAllParsing.count > 0) {
-//        store.dispatch(action: AlbumsActions.SetStatusAll(
-//          ids: setStatusAllParsing,
-//          status: .parsingFiles
-//        ))
-//      }
-      
     }
 }
