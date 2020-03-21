@@ -1,9 +1,9 @@
-public struct OrderedSet<E: Identifiable>: Equatable, Collection {
+public struct OrderedSet<E: Identifiable>: Collection {
   public typealias Element = E
   public typealias Index = Int
   public typealias Indices = Range<Int>
   
-  private var array: [Element]
+  fileprivate var array: [Element]
   fileprivate var set: Set<Element.ID>
   
   /// Creates an empty ordered set.
@@ -40,6 +40,45 @@ public struct OrderedSet<E: Identifiable>: Equatable, Collection {
   
   public func get(_ id: Element.ID) -> Element? {
     return self.array.first(where: {$0.id == id})
+  }
+  
+  public func getIndex(_ id: Element.ID) -> Index? {
+    return self.array.firstIndex(where: {$0.id == id})
+  }
+  
+  @discardableResult
+  public mutating func updateElement<T>(
+    id: Element.ID,
+    keyPath: WritableKeyPath<Element, T>,
+    value: T
+  ) -> Bool {
+    guard let index = getIndex(id) else {
+      return false
+    }
+    
+    self.array[index][keyPath: keyPath] = value
+    return true
+  }
+  
+  @discardableResult
+  public mutating func updateElements<T>(
+    ids: [Element.ID],
+    keyPath: WritableKeyPath<Element, T>,
+    value: T
+  ) -> Bool {
+    guard ids.count > 0 else {
+      return false
+    }
+    
+    var result = false
+    
+    for id in ids {
+      if (updateElement(id: id, keyPath: keyPath, value: value)) {
+        result = true
+      }
+    }
+    
+    return result
   }
   
   /// Adds an element to the ordered set.
@@ -93,6 +132,12 @@ public struct OrderedSet<E: Identifiable>: Equatable, Collection {
   }
 }
 
+extension OrderedSet: Equatable where Element: Equatable {
+  public static func == (lhs: OrderedSet<E>, rhs: OrderedSet<E>) -> Bool {
+    return lhs.array == rhs.array
+  }
+}
+
 extension OrderedSet: ExpressibleByArrayLiteral {
   /// Create an instance initialized with `elements`.
   ///
@@ -109,11 +154,6 @@ extension OrderedSet: RandomAccessCollection {
   public subscript(index: Int) -> Element {
     return contents[index]
   }
-}
-
-// !NOTE: OrseredSets are equal if they have the same elements ids
-public func == <T>(lhs: OrderedSet<T>, rhs: OrderedSet<T>) -> Bool {
-  return lhs.set == rhs.set
 }
 
 extension OrderedSet: Hashable where Element: Hashable { }

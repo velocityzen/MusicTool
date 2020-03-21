@@ -9,13 +9,16 @@ extension AppDelegate: NSToolbarDelegate {
     toolbar.autosavesConfiguration = false
     toolbar.displayMode = .iconOnly
     toolbar.delegate = self
+    toolbar.isVisible = false
+    
+    toolbarSubscription = store.subscribe()
+      .map { $0.albums.items.count > 0 }
+      .removeDuplicates()
+      .assign(to: \.isVisible, on: toolbar)
+    
     window.toolbar = toolbar
   }
-  
-  func toggleToolbar(_ isVisible: Bool) {
-    window.toolbar?.isVisible = !isVisible
-  }
-  
+
   func toolbar(
     _ toolbar: NSToolbar,
     itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
@@ -29,8 +32,7 @@ extension AppDelegate: NSToolbarDelegate {
   }
   
   func getConnectedViewToolbarItem() -> NSToolbarItem {
-    let toolbarItem = ConnectedViewToolbarItem(itemIdentifier: .connectedView)
-    return toolbarItem
+    return ConnectedViewToolbarItem(itemIdentifier: .connectedView)
   }
     
   func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {

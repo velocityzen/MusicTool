@@ -1,11 +1,3 @@
-//
-//  cover.swift
-//  Music Tool
-//
-//  Created by velocityzen on 2/22/20.
-//  Copyright © 2020 velocityzen. All rights reserved.
-//
-
 import Foundation
 
 func getCoverURL(_ album: Album) -> URL? {

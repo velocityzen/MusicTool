@@ -7,7 +7,7 @@ struct AlbumsActions {
 
     func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
       DispatchQueue.global(qos: .userInitiated).async {
-        getAlbums(url: self.url) { album in
+        getAlbums(from: self.url) { album in
           dispatch(Add(album: album))
         }
       }
@@ -24,6 +24,16 @@ struct AlbumsActions {
   
   struct RemoveAll: Action {
     let ids: [UUID]
+  }
+  
+  struct SetStatus: Action {
+    let id: UUID
+    let status: AlbumStatus
+  }
+  
+  struct SetStatusAll: Action {
+    let ids: [UUID]
+    let status: AlbumStatus
   }
   
   struct SetCover: Action {

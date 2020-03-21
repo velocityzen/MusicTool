@@ -32,7 +32,7 @@ struct ToolbarView: ConnectedView {
         Text("Transcode")
       }
     }
-    .frame(height: 38)
+    .frame(height: 40)
   }
   
 }

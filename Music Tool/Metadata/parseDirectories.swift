@@ -7,7 +7,7 @@ struct AlbumDirectory {
   var cueFiles: [URL]
 }
 
-func getAlbums(url: URL, callback: (Album) -> Void) {
+func getAlbums(from url: URL, callback: (Album) -> Void) {
   guard let albumDirectories = getFilesInGroups(url) else {
     return
   }

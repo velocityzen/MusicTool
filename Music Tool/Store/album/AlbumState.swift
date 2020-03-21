@@ -1,6 +1,6 @@
 import Foundation
 
-enum AlbumStatus: Int, Codable {
+enum AlbumStatus: Int, Codable, Equatable {
   case new
   case parsingFiles
   case parsingFilesComplete
@@ -19,7 +19,7 @@ enum AlbumStatus: Int, Codable {
 //  let title: String
 //}
 
-struct Album: Codable, Identifiable {
+struct Album: Codable, Identifiable, Equatable {
   let id: UUID
   let url: URL
   let musicFiles: [URL]
@@ -30,7 +30,7 @@ struct Album: Codable, Identifiable {
   var artist: String? = nil
   var cover: URL? = nil
   
-  let status: AlbumStatus
+  var status: AlbumStatus
 
 //  let tracks: [Track]
 

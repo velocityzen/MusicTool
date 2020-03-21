@@ -10,6 +10,7 @@ import Cocoa
 import SwiftUI
 import SwiftUIFlux
 import Defaults
+import Combine
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -18,10 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @IBOutlet weak var systemModeMenuItem: NSMenuItem!
   
   var window: NSWindow!
+  var workersSubscription: AnyCancellable!
+  var filesParsingSubscription: AnyCancellable!
+  var toolbarSubscription: AnyCancellable!
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     setTheme()
-    initWorkers()
+    workersSubscription = initWorkersSubjects()
+    filesParsingSubscription = initFileParsingSubscription()
     
     // Create the SwiftUI view that provides the window contents.
     let rootView = StoreProvider(store: store) {
@@ -56,7 +61,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
-    // Insert code here to tear down your application
+    toolbarSubscription = nil
+    workersSubscription = nil
+    filesParsingSubscription = nil
   }
   
   func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
