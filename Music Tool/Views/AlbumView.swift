@@ -3,6 +3,10 @@ import SwiftUI
 struct AlbumView: View {
   let album: Album
   
+  init(_ album: Album) {
+    self.album = album
+  }
+  
   var body: some View {
     VStack {
       AlbumCover(url: album.cover)
@@ -46,6 +50,6 @@ struct AlbumView: View {
 
 struct Album_Previews: PreviewProvider {
   static var previews: some View {
-    AlbumView(album: getTestAlbum())
+    AlbumView(getTestAlbum())
   }
 }

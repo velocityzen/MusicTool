@@ -5,6 +5,7 @@ public struct OrderedSet<E: Identifiable>: Collection {
   
   fileprivate var array: [Element]
   fileprivate var set: Set<Element.ID>
+ 
   
   /// Creates an empty ordered set.
   public init() {

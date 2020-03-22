@@ -16,7 +16,6 @@ func initWorkersSubjects(_ queue: DispatchQueue) -> AnyCancellable {
       for album in state.albums.items {
         switch album.status {
           case .new:
-            print("is main thread: \(Thread.isMainThread)")
             setAlbumStatusAction(id: album.id, status: .parsingFiles)
             readyForFileParsingAlbums.send(album)
             break
