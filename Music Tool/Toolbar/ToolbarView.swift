@@ -11,24 +11,18 @@ struct ToolbarView: ConnectedView {
   func body(props: Props) -> some View {
     HStack {
       if (props.isOpenAlbum) {
-        Button(action: {
-          self.close()
-        }) {
+        Button(action: close) {
           Text("Back")
         }
       }
       
-      Button(action: {
-        self.addToMetadataRequestQueue()
-      }) {
+      Button(action: addToMetadataRequestQueue) {
         Text("Get Metadata")
       }
 
       Spacer()
 
-      Button(action: {
-        self.addToTranscodeQueue()
-      }) {
+      Button(action: addToTranscodeQueue) {
         Text("Transcode")
       }
     }
