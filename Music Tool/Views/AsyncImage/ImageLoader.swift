@@ -7,12 +7,15 @@ class ImageLoader: ObservableObject {
 
   @Published var image: NSImage?
   private let url: URL?
-  private var cancellable: AnyCancellable?
   private var cache: ImageCache?
+  private let maxSize: NSSize?
+  
+  private var cancellable: AnyCancellable?
   private(set) var isLoading = false
   
-  init(url: URL?, cache: ImageCache? = nil) {
+  init(url: URL?, maxSize: NSSize? = nil, cache: ImageCache? = nil) {
     self.url = url
+    self.maxSize = maxSize
     self.cache = cache
   }
   
@@ -32,12 +35,14 @@ class ImageLoader: ObservableObject {
     
     cancellable = URLSession.shared.dataTaskPublisher(for: url)
       .subscribe(on: Self.imageProcessingQueue)
-      .map { NSImage(data: $0.data) }
+      .map { NSImage(data: $0.data, maxSize: self.maxSize) }
       .replaceError(with: nil)
-      .handleEvents(receiveSubscription: { [unowned self] _ in self.onStart() },
-                    receiveOutput: { [unowned self] in self.cache($0) },
-                    receiveCompletion: { [unowned self] _ in self.onFinish() },
-                    receiveCancel: { [unowned self] in self.onFinish() })
+      .handleEvents(
+        receiveSubscription: { [unowned self] _ in self.onStart() },
+        receiveOutput: { [unowned self] in self.cache($0) },
+        receiveCompletion: { [unowned self] _ in self.onFinish() },
+        receiveCancel: { [unowned self] in self.onFinish() }
+      )
       .receive(on: DispatchQueue.main)
       .assign(to: \.image, on: self)
   }
@@ -58,7 +63,7 @@ class ImageLoader: ObservableObject {
     guard let url = self.url else {
       return
     }
-    
+  
     image.map { cache?[url] = $0 }
   }
 }

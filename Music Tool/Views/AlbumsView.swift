@@ -7,27 +7,12 @@ struct AlbumsView: ConnectedView {
   }
   
   func body(props: Props) -> some View {
-    ScrollView(.vertical) {
       GridView(props.albums, itemWidth: ALBUM_WIDTH, padding: ALBUM_PADDING) { album in
         AlbumView(album)
+          .onTapGesture {
+            self.openAlbum(album.id)
+          }
       }
-    }
-    
-//    GeometryReader { geometry in
-//      ScrollView(.vertical) {
-//        Grid(
-//          geometry: geometry,
-//          itemsCount: props.albums.count,
-//          itemWidth: ALBUM_WIDTH,
-//          padding: ALBUM_PADDING
-//        ) { index in
-//          AlbumView(album: props.albums[index])
-//            .onTapGesture {
-//              self.openAlbum(props.albums[index].id)
-//            }
-//        }
-//      }
-//    }
   }
   
 }

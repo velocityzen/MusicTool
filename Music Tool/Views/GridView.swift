@@ -18,15 +18,17 @@ struct GridView<Content, DataType>: DynamicViewContent where Content: View, Data
   
   var body: some View {
     GeometryReader { geometry in
-      self.gridView(geometry)
-        .padding(self.padding)
-        .frame(maxWidth: .infinity)
+      ScrollView(.vertical) {
+        self.gridView(geometry)
+          .padding(self.padding)
+          .frame(maxWidth: .infinity)
+      }
     }
   }
   
   private func gridView(_ geometry: GeometryProxy) -> some View {
     let boundaries = calculateBoundaries(geometry)
-    print("size: \(geometry.size), boundaries: \(boundaries)")
+//    print("size: \(geometry.size), boundaries: \(boundaries)")
     
     return VStack(spacing: 0) {
       ForEach((0..<boundaries.rows), id: \.self) { row in

@@ -4,8 +4,8 @@ struct AsyncImage<Placeholder: View>: View {
   @ObservedObject private var loader: ImageLoader
   private let placeholder: Placeholder?
 
-  init(_ url: URL?, placeholder: Placeholder? = nil, cache: ImageCache? = globalImageCache) {
-    self.loader = ImageLoader(url: url, cache: cache)
+  init(_ url: URL?, placeholder: Placeholder? = nil, maxSize: NSSize? = nil, cache: ImageCache? = globalImageCache) {
+    self.loader = ImageLoader(url: url, maxSize: maxSize, cache: cache)
     self.placeholder = placeholder
   }
   
