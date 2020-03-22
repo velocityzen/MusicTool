@@ -10,7 +10,7 @@ struct AsyncImage<Placeholder: View>: View {
   }
   
   var body: some View {
-    image
+    image // use imageTransition after grid view optimization
       .onAppear(perform: loader.load)
       .onDisappear(perform: loader.cancel)
   }

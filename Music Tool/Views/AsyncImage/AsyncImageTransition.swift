@@ -12,7 +12,8 @@ struct AsyncImageTransition<Placeholder: View>: View {
           .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.15)))
       }
       
-      image?.transition(AnyTransition.opacity.animation(.easeOut(duration: 0.15)))
+      image?
+        .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.15)))
     }
   }
 }
