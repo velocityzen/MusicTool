@@ -8,12 +8,15 @@ let readyForTranscodeAlbums = PassthroughSubject<Album, Never>()
 
 func initWorkersSubjects(_ queue: DispatchQueue) -> AnyCancellable {
   return store.subscribe()
-    .debounce(for: 0.5, scheduler: RunLoop.main)
-    .receive(on: queue)
+    .subscribe(on: queue)
+    .debounce(for: 1, scheduler: queue)
     .sink { state in
+      
+      // TODO: check the speed and maybe do batch send/updates
       for album in state.albums.items {
         switch album.status {
           case .new:
+            print("is main thread: \(Thread.isMainThread)")
             setAlbumStatusAction(id: album.id, status: .parsingFiles)
             readyForFileParsingAlbums.send(album)
             break

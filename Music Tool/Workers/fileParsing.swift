@@ -7,9 +7,8 @@ private struct Result {
   let errors: [Error]?
 }
 
-func initFileParsingSubscription(_ queue: DispatchQueue) -> AnyCancellable {
+func initFileParsingSubscription() -> AnyCancellable {
   return readyForFileParsingAlbums
-    .subscribe(on: queue)
     .receive(on: DispatchQueue.global())
     .flatMap { album in
       Future { promise in

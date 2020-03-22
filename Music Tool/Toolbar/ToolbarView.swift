@@ -19,7 +19,7 @@ struct ToolbarView: ConnectedView {
       Button(action: addToMetadataRequestQueue) {
         Text("Get Metadata")
       }
-
+      
       Spacer()
 
       Button(action: addToTranscodeQueue) {
