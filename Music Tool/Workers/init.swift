@@ -6,12 +6,11 @@ let readyForFileParsingAlbums = PassthroughSubject<Album, Never>()
 let readyForMetadataAlbums = PassthroughSubject<Album, Never>()
 let readyForTranscodeAlbums = PassthroughSubject<Album, Never>()
 
-func initWorkersSubjects(_ queue: DispatchQueue) -> AnyCancellable {
+func initWorkersSubjects() -> AnyCancellable {
   return store.subscribe()
-    .subscribe(on: queue)
-    .debounce(for: 1, scheduler: queue)
+    .debounce(for: 1, scheduler: DispatchQueue.global(qos: .userInitiated))
     .sink { state in
-      
+      print("Init 2: isMain \(Thread.isMainThread)")
       // TODO: check the speed and maybe do batch send/updates
       for album in state.albums.items {
         switch album.status {
